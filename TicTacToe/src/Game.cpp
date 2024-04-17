@@ -10,15 +10,22 @@ int main()
 		rend.UpdateDisplay(PlayerData);
 
 		bool WinX = rend.GetWinner('X');
-		bool WinY = rend.GetWinner('Y');
+		bool WinO = rend.GetWinner('O');
 		if (WinX) {
 			std::cout << "X won the match" << std::endl;
 			rend.win = true;
 		}
-		else if (WinY) {
-			std::cout << "Y won the match" << std::endl;
+		else if (WinO) {
+			std::cout << "O won the match" << std::endl;
 			rend.win = true;
 		}
+		else if (!WinX && !WinO && rend.turn_count == 9)
+		{
+			std::cout << "DRAW" << std::endl;
+			break;
+		}
 		else system("cls");
+
+		
 	}
 }

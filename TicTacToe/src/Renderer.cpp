@@ -2,14 +2,29 @@
 
 void Renderer::DrawBoard()
 {
-	std::cout << "WELCOME TO TIC TAC TOE game" << std::endl;
+	std::cout << "\t \t \t \t" << "WELCOME TO "  << std::endl  << "\t \t \t     " << "TIC TAC TOE GAME" << std::endl;
+	std::cout << std::endl;
+	std::cout << "\t \t  Enter number for the specific spots" << std::endl;
+	std::cout << std::endl;
+	std::cout << "    Sample Grid of Numbers" << std::endl;
+	std::cout << std::endl;
+	std::cout << "\t "<< "1|2|3" << std::endl;
+	std::cout << "\t "<< "-----" << std::endl;
+	std::cout << "\t "<< "4|5|6" << std::endl;
+	std::cout << "\t "<< "-----" << std::endl;
+	std::cout << "\t "<< "7|8|9" << std::endl;
+
+	std::cout << std::endl;
+	std::cout << std::endl;
 	std::cout << std::endl;
 	const char* localTurn = PlayData.m_PlayerTurn == Turn::TURNX ? "X" : "O";
-	std::cout << localTurn << "Turn" << std::endl;
+	std::cout<< "\t" << localTurn << "'s Turn" << std::endl;
+	std::cout << std::endl;
 	std::cout << std::endl;
 	int count = 0;
 
 	for (int i = 1; i <= 5; i++){
+		std::cout << "\t";
 		for (int j = 1; j <= 5; j++){
 			if (i % 2 == 0 )                   std::cout << "_";
 			else if (j % 2 == 0 && i %2 != 0)  std::cout << "|";
@@ -20,6 +35,8 @@ void Renderer::DrawBoard()
 		}
 		std::cout << std::endl;
 	}
+	std::cout << std::endl;
+	std::cout <<"Enter A Number From (1 To 9)";
 }
 
 data Renderer::GetInput()
@@ -28,6 +45,7 @@ data Renderer::GetInput()
 	std::cin >> boxNum;
 
 	if (matrix[boxNum - 1] == ' ' && boxNum > 0 && boxNum < 10) {
+		turn_count++;
 		return { boxNum, PlayData.m_PlayerTurn };
 	}
 	else {

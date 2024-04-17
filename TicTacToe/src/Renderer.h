@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include  <string>
 
 enum Turn{
 	TURNX = 0,
@@ -27,6 +28,7 @@ public:
 	bool GetWinner(char Player);
 
 public:
+	int turn_count = 0;
 	char matrix[10];
 	bool win = false;
 	data PlayData;
